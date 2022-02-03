@@ -1,0 +1,15 @@
+package com.gallor.incomeandexpenses.ui.account
+
+import androidx.lifecycle.ViewModel
+import com.gallor.incomeandexpenses.repository.AccountRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class AccountListViewModel @Inject constructor(
+    private val repository: AccountRepository
+): ViewModel() {
+
+    val accounts = repository.getAccounts()
+
+}
