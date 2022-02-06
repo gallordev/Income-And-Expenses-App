@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.sp
 import com.gallor.incomeandexpenses.model.Account
 import com.ramcosta.composedestinations.annotation.Destination
 
-@Destination(start = true)
 @Composable
 fun AccountItem(
     account: Account,
