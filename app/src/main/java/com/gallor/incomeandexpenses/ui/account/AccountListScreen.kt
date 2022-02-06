@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun AccountListView(
+fun AccountListScreen(
     viewModel: AccountListViewModel = viewModel()
 ) {
     val accounts = viewModel.accounts.collectAsState(initial = emptyList())
