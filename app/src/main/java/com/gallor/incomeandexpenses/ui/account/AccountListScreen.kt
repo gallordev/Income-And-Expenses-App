@@ -14,11 +14,18 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ramcosta.composedestinations.annotation.Destination
 
+sealed class AccountListEvent {
+    data class AddAccount(val email: String, val password: String) : AccountListEvent()
+    object EditAccount : AccountListEvent()
+    object DeleteAccount : AccountListEvent()
+    object NavigateBack : AccountListEvent()
+}
+
 @Composable
 fun AccountListScreen(
-    viewModel: AccountListViewModel = viewModel()
+    onNavigationEvent: (AccountListEvent) -> Unit
 ) {
-    val accounts = viewModel.accounts.collectAsState(initial = emptyList())
+
     val scaffoldState = rememberScaffoldState()
     Scaffold(
         scaffoldState = scaffoldState
@@ -26,14 +33,14 @@ fun AccountListScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            items(accounts.value) { account ->
-                AccountItem(
-                    account = account,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp)
-                )
-            }
+//            items(accounts.value) { account ->
+//                AccountItem(
+//                    account = account,
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(16.dp)
+//                )
+//            }
         }
     }
 }

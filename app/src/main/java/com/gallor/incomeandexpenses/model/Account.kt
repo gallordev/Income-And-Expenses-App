@@ -13,6 +13,6 @@ data class Account(
     val description: String?,
     @Embedded val currency: Currency,
     val balance: Int,
-    @ColumnInfo(name = "created_at") val createdAt: Date,
-    @ColumnInfo(name = "updated_at") val updatedAt: Date
+    @ColumnInfo(name = "created_at") val createdAt: Date = Date(),
+    @ColumnInfo(name = "updated_at") val updatedAt: Date = Date()
 )
